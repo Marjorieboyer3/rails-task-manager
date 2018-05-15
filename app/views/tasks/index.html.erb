@@ -1,0 +1,13 @@
+<h1> Welcom </h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <h2> <%= task.completed ? "[X]" : "[ ]" %>  <%= link_to task[:title], task_path(task) %>
+<%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %> </h2>
+    </li>
+  <% end %>
+</ul>
+
+<p> <%= link_to 'Create new task', '/tasks/new' %> </p>
